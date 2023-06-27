@@ -1,0 +1,53 @@
+Q)so we are required to collect m red apples but there are red and green apples how much apple in total red and green combined should we collect to get the required number of apples .
+N – number of trees to the north does not have red apples.
+S – number of trees to the south does not have green apples.
+W – number of trees in the west has some red apples.
+E – number of trees in the east have some green apples.
+
+
+// C++ program for the above approach
+#include<bits/stdc++.h>
+using namespace std;
+ 
+// Function to minimum no. of apples
+int minApples(int M,int K,int N,int S,int W,int E){
+    
+    if(M <= S * K)
+        return M;
+ 
+  
+    else if(M <= S * K + E + W)
+        return S * K + (M-S * K) * K;
+ 
+   
+    else
+        return -1;
+ 
+}
+ 
+// Driver Code
+int main(){
+     
+    // No. of red apple for gift
+    int M = 21;
+ 
+    // No. of red apple in each tree
+    int K = 15;
+ 
+    // No. of tree in North
+    int N = 0;
+ 
+    // No. of tree in South
+    int S = 1;
+ 
+    // No. of tree in West
+    int W = 0;
+ 
+    // No. of tree in East
+    int E = 0;
+ 
+    // Function Call
+    int ans = minApples(M,K,N,S,W,E);
+    cout<<ans<<endl;
+ 
+}
